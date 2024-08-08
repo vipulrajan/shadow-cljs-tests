@@ -1,9 +1,10 @@
-(ns app.core)
+(ns app.core
+  (:require [app.goo :refer [Goo]]))
 
-(defprotocol Goo
-  (do-some [this]))
 
-(defrecord Foo [a b]
+(defrecord Foo [a b])
+
+(extend-type Foo
   Goo
   (do-some [this] (->Foo 4 5)))
 
